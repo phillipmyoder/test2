@@ -10,7 +10,7 @@
 *  https://www.w3schools.com/jsref/jsref_push.asp
 *  "The Road to learn React" by robin wieruch
 *  The Browser Team's part of the LTC-TMS project
-*  The last three consts were from the code you showed on 2/28/19, I remember you showing it,
+*  The last few consts were from the code you showed on 2/28/19, I remember you showing it,
 *  and some details, and worked it out from there
 *  and others, I forgot to write the names down as I went along 
 *  I'll remember for next time
@@ -49,6 +49,7 @@ export default class App extends Component
         {
             this.setState({ error: '** THERE ARE NO MATCHING RESULTS **' })
         }
+
     }
 
     /**
@@ -77,7 +78,7 @@ export default class App extends Component
     {
         this.setState({ results: this.state.allUsers })
         this.setState({ searchTerm: '' }) 
-
+        this.setState({ error: '' })
     }
     /**
      * @name delete
@@ -114,7 +115,7 @@ export default class App extends Component
           if (user.username === newUser.username) 
           {
               newName = false
-              console.log({error: '**THIS USER NAME ALREADY EXISTS! TRY AGIAN!**'})
+              this.setState({error: '**THIS USER NAME ALREADY EXISTS! TRY AGIAN!**'})
               return true
           } 
       })
@@ -122,7 +123,7 @@ export default class App extends Component
         if (user.email === newUser.email) 
         {
             newEmail = false
-            console.log({error: '**THIS EMAIL IS ALREADY BEING USED! TRY AGIAN!**'})
+            this.setStateP({error: '**THIS EMAIL IS ALREADY BEING USED! TRY AGIAN!**'})
             return true
         } 
     })
@@ -156,7 +157,7 @@ export default class App extends Component
                 <Search onSubmit={this.searching} onChange={this.setSearchTerm} />
                 <Table users={this.state.results} remove={this.delete} />
                 <Add onSubmit={this.add} onChange={this.addNewUser} newUser = {this.state.newUser}/>
-
+                <Err errText={this.state.error} /><br />
             </div>
         )
     }
@@ -194,7 +195,6 @@ const Table = ({ users, remove }) =>
                     <span style = {{flex: 1, alignSelf: 'stretch'}}>{item.name}</span>
                     <span style = {{flex: 1, alignSelf: 'stretch'}}>{item.username}</span>
                     <span style = {{flex: 1, alignSelf: 'stretch'}}>{item.email}</span>
-                    
                     <span><button onClick={(event) => remove(event, item.username)}>Remove</button></span>
                 </div>
             )
@@ -215,4 +215,11 @@ const Add = ({ onSubmit, onChange, newUser }) =>
         <input style = {{flex: 1, alignSelf: 'stretch'}} type="email" name="email" placeholder="Enter Email" value={newUser.email} onChange={onChange} required />
         <button>Add</button>
     </form>
+)
+/**
+ * @name Err
+ * @description allows for the print out of error messages
+ */
+const Err = ({ errText }) => (
+    (errText === '') ? '' : <span className="err"> {errText} </span>
 )
