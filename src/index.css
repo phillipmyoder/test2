@@ -8,7 +8,46 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+a{
+  color: #222;
+}
+
+a:hover{
+  text-decoration: underline;
+}
+
+ul, li{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+input{
+  padding: 5px;
+  border-radius: 5px;
+  outline: none;
+  margin-right: 10 px; 
+  border: 1px solid #dddddd
+}
+
+button{
+  padding: 5px;
+  border-radius: 5px;
+  background-color: #003366;
+  border: 1px solid #003366;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover{
+  color: #222
+}
+
+*:focus{
+  outline:none;
 }
