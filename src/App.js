@@ -3,12 +3,15 @@
  * @author Phillip Yoder
  * @description gather information from https://jsonplaceholder.typicode.com/users
  *              and be able to manipulate or view all of the data
+ * URL: https://project1-phillipyoder.herokuapp.com/
  */
 /**
- * References
+* References
 *  https://www.w3schools.com/jsref/jsref_push.asp
 *  "The Road to learn React" by robin wieruch
-*  and others, I forgot to write their names down as I went along 
+*  The Browser Team's part of the LTC-TMS project
+*  and others, I forgot to write the names down as I went along 
+*  I'll remember for next time
  * */
 import React, { Component } from 'react'
 import './App.css'
