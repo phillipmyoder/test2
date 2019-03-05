@@ -10,11 +10,14 @@
 *  https://www.w3schools.com/jsref/jsref_push.asp
 *  "The Road to learn React" by robin wieruch
 *  The Browser Team's part of the LTC-TMS project
+*  The last three consts were from the code you showed on 2/28/19, I remember you showing it,
+*  and some details, and worked it out from there
 *  and others, I forgot to write the names down as I went along 
 *  I'll remember for next time
  * */
 import React, { Component } from 'react'
 import './App.css'
+import './index.css'
 
 export default class App extends Component 
 {
