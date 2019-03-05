@@ -43,7 +43,9 @@ export default class App extends Component
         this.setState({ results: searchResults }) 
 
         if (searchResults.length <= 0)
+        {
             this.setState({ error: '** THERE ARE NO MATCHING RESULTS **' })
+        }
     }
 
     /**
@@ -80,7 +82,8 @@ export default class App extends Component
      *               updates the table information to reflect when "viewAllUsers"
      *               is called
      */
-    delete = (event, username) => {
+    delete = (event, username) =>
+    {
         this.setState({
           results: this.state.results.filter(users =>
               users.username !== username)
@@ -89,13 +92,14 @@ export default class App extends Component
           allUsers: this.state.allUsers.filter(users =>
               users.username !== username)
       })
-  }
+    }
 
     /**
      * @name add
      * @description adds the new user to the table 
      */
-    add = (event) => {
+    add = (event) => 
+    {
       // prevents the page from resetting
       event.preventDefault()
 
@@ -159,7 +163,8 @@ export default class App extends Component
 * @name Search
 * @description activates the search function
 */
-const Search = ({ onSubmit, onChange }) => (
+const Search = ({ onSubmit, onChange }) => 
+(
     <form onSubmit={onSubmit}>
         <input onChange={onChange} required />
         <button id="searchButton">Search Name</button>
@@ -170,7 +175,8 @@ const Search = ({ onSubmit, onChange }) => (
 * @name Table
 * @description sets up and fills in the table
 */
-const Table = ({ users, remove }) => (
+const Table = ({ users, remove }) => 
+(
     // from className "table-header", is what spaces out the header of the table
     // from className "table-row", is what spaces out and fills in the actual contents of the table
     <div className="table">
